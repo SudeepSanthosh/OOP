@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.io.*;
+
+class FileHandling
+{
+	public static void main(String args[])
+	{
+	try{
+			Writer writer = new FileWriter("/home/mec/output.txt");
+			String ch;
+			Scanner obj=new Scanner(System.in);
+			ch=obj.nextLine();
+			writer.write(ch);
+			writer.close();
+			System.out.println("Writing done");
+			}
+	catch(IOException e)
+	{
+		System.out.println("IO exception");
+	}
+	
+	try{
+			Reader reader=new FileReader("/home/mec/output.txt");
+			int ch;
+			ch=reader.read();
+			while(ch!=-1)
+			{
+				System.out.print((char)ch);
+				ch=reader.read();
+			}
+			System.out.println();
+			reader.close();
+			}
+			catch(IOException e)
+			{
+			System.out.println("IO exception");
+			}
+	}
+}
