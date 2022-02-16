@@ -1,3 +1,4 @@
+//Program to sort names using quick sort algorithm
 class QuickSort{
 
     void quickSort(String[] arr,int low,int high)
