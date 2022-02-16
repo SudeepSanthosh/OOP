@@ -1,0 +1,20 @@
+interface Main
+{
+    void m1();
+    final int a=10;    
+}
+
+class IntInh implements Main
+{
+    public void m1()
+    {
+        System.out.println("Welcome to body of Method 1");
+    }
+
+
+    public static void main(String args[])
+    {
+        IntInh M=new IntInh();
+        M.m1();
+    }
+}
