@@ -1,0 +1,59 @@
+class Employee
+{
+	String name;
+	int age;
+	long phno;
+	String address;
+	double salary;
+
+	Employee(String name,int age,long phno,String address,double salary)
+	{
+		this.name=name;
+		this.age=age;
+		this.phno=phno;
+		this.address=address;
+		this.salary=salary;
+	}
+
+	void printSalary()
+	{
+		System.out.println("The salary of the employee is: "+salary);
+	}
+
+}
+
+class Officer extends Employee
+{
+	String specialisation;
+
+	Officer(String name,int age,long phno,String address,double salary,String specialisation)
+	{
+		super(name,age,phno,address,salary);
+		this.specialisation=specialisation;
+	}
+	
+}
+
+class Manager extends Employee
+{
+	String department;
+
+	Manager(String name,int age,long phno,String address,double salary,String department)
+	{
+		super(name,age,phno,address,salary);
+		this.department=department;
+	}
+
+}
+
+class empDetails
+{
+	public static void main(String args[])
+	{
+		Officer O=new Officer("LVC",19,7012487326L,"Malapuram",250000.0,"Lead Designer");
+		Manager M=new Manager("Anm",19,8139130145L,"Kochi",250000.0,"APP development");
+		
+		System.out.println("Name: "+O.name+"\nAge: "+O.age+"\nPhone no.: "+O.phno+"\nAddress: "+O.address+"\nSalary: "+O.salary+"\nSpecialisation: "+O.specialisation);
+		System.out.println("\nName: "+M.name+"\nAge: "+M.age+"\nPhone no.: "+M.phno+"\nAddress: "+M.address+"\nSalary: "+M.salary+"\nDepartment: "+M.department);
+	}
+}		
