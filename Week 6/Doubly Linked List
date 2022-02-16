@@ -1,1 +1,90 @@
+import java.util.Scanner;
+
+class DLinkedList{
+
+class Node{
+int data;
+Node prev = null;
+Node next = null;
+}
+
+Node head = null;
+Node tail = null;
+
+void insertNode(int data){
+Node node = new Node();
+node.data = data;
+
+//if empty
+if(head == null)
+head = tail = node;
+else {
+tail.next = node;
+node.prev = tail;
+tail = node;
+}
+}
+
+void deleteNode(int data){
+Node current = head;
+while(current != null){
+if(current.data == data){
+if(current == head){
+head = current.next;
+
+}
+else if(current == tail){
+current.prev.next = null;
+tail = tail.prev;
+
+}
+else{
+current.prev.next = current.next.prev;
+current.next.prev = current.prev.next;
+
+}
+}
+else
+current = current.next;
+}
+if (current == null)
+System.out.println("Element not found");
+}
+
+void display(){
+Node current = head;
+if(current == null)
+System.out.print("Empty list");
+else{
+System.out.print("List : ");
+while(current!=null){
+System.out.print(current.data + " ");
+current = current.next;
+}
+}
+System.out.println();
+}
+}
+
+class Main{
+public static void main(String[] args){
+Scanner sc = new Scanner(System.in);
+DLinkedList ob = new DLinkedList();
+
+System.out.print("Enter size: ");
+int n = sc.nextInt();
+
+for(int i=0; i<n; i++){
+System.out.print("Enter element: ");
+int item = sc.nextInt();
+ob.insertNode(item);
+}
+
+ob.display();
+
+System.out.print("Enter element to be deleted: ");
+int d = sc.nextInt();
+ob.deleteNode(d);
+}
+}
 
